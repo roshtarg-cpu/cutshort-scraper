@@ -1,0 +1,48 @@
+{
+  "actorSpecification": 1,
+  "title": "Cutshort Job",
+  "views": {
+    "overview": {
+      "title": "Overview",
+      "transformation": {
+        "fields": [
+          "title",
+          "company",
+          "location",
+          "salaryText",
+          "skills",
+          "url"
+        ]
+      },
+      "display": {
+        "component": "table",
+        "properties": {
+          "title": {
+            "label": "Job Title",
+            "format": "text"
+          },
+          "company": {
+            "label": "Company",
+            "format": "text"
+          },
+          "location": {
+            "label": "Location",
+            "format": "text"
+          },
+          "salaryText": {
+            "label": "Salary",
+            "format": "text"
+          },
+          "skills": {
+            "label": "Skills",
+            "format": "text"
+          },
+          "url": {
+            "label": "URL",
+            "format": "link"
+          }
+        }
+      }
+    }
+  }
+}
