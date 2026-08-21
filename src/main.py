@@ -19,11 +19,14 @@ async def fetch_page(url: str, proxy_url: Optional[str] = None) -> Optional[str]
         'Accept-Language': 'en-US,en;q=0.9',
     }
     
-    async with httpx.AsyncClient(
-        timeout=30.0,
-        follow_redirects=True,
-        proxies=proxy_url if proxy_url else None
-    ) as client:
+    client_kwargs = {
+        'timeout': 30.0,
+        'follow_redirects': True,
+    }
+    if proxy_url:
+        client_kwargs['proxy'] = proxy_url
+    
+    async with httpx.AsyncClient(**client_kwargs) as client:
         try:
             response = await client.get(url, headers=headers)
             response.raise_for_status()
