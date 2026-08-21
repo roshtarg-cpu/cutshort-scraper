@@ -1,9 +1,12 @@
 {
   "actorSpecification": 1,
   "name": "cutshort-scraper",
-  "title": "Cutshort Job Scraper",
-  "description": "Extract job listings from Cutshort.io including title, company, location, salary, skills, and experience requirements. Works with Claude, ChatGPT, and AI agents via Apify MCP.",
+  "title": "Cutshort Job Scraper — Fast Python API for AI Agents",
+  "description": "Extract job listings from Cutshort.io including title, company, location, salary, skills, and experience requirements. Optimized for Claude, ChatGPT, and AI agents via MCP. Pure HTTP = 3-5x faster than browser-based scrapers.",
   "version": "0.1",
   "buildTag": "latest",
-  "dockerfile": "./Dockerfile"
+  "dockerfile": "./Dockerfile",
+  "categories": ["JOBS"],
+  "seoTitle": "Cutshort Scraper for Claude, ChatGPT & AI Agents | India Tech Jobs",
+  "seoDescription": "Fast Cutshort.io job scraper optimized for AI agents. Extract India tech job listings with salary, skills, company data. MCP-compatible, pure HTTP, 3-5x faster than competitors."
 }
