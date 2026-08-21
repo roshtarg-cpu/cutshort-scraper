@@ -8,5 +8,8 @@
   "dockerfile": "./Dockerfile",
   "categories": ["JOBS"],
   "seoTitle": "Cutshort Job Scraper for AI Agents | India Tech Jobs",
-  "seoDescription": "Fast Cutshort.io job scraper optimized for AI agents. Extract India tech job listings with salary, skills, company data. MCP-compatible, pure HTTP, 3-5x faster than competitors."
+  "seoDescription": "Fast Cutshort.io job scraper optimized for AI agents. Extract India tech job listings with salary, skills, company data. MCP-compatible, pure HTTP, 3-5x faster than competitors.",
+  "storages": {
+    "dataset": "./actor/output_schema.json"
+  }
 }
