@@ -7,7 +7,7 @@
   "buildTag": "latest",
   "dockerfile": "./Dockerfile",
   "output": {
-    "schemaVersion": 1,
+    "actorOutputSchemaVersion": 1,
     "title": "Cutshort Job",
     "type": "object",
     "properties": {
