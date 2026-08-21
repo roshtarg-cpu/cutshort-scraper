@@ -51,15 +51,29 @@ def extract_jobs_from_html(html: str) -> list[Dict[str, Any]]:
         
         data = json.loads(match.group(1))
         
-        # Navigate to jobs array
+        # Navigate to jobs array: queries[0].state.data.data.pageData.jobs
         queries = data.get('props', {}).get('pageProps', {}).get('dehydratedState', {}).get('queries', [])
         
-        for query in queries:
-            state_data = query.get('state', {}).get('data', {})
-            if isinstance(state_data, dict) and 'jobs' in state_data:
-                jobs = state_data.get('jobs', [])
-                if jobs:
-                    return jobs
+        if queries:
+            # Try the nested structure first
+            state_data = queries[0].get('state', {}).get('data', {})
+            if 'data' in state_data:
+                inner_data = state_data['data']
+                if 'pageData' in inner_data:
+                    page_data = inner_data['pageData']
+                    jobs = page_data.get('jobs', [])
+                    if jobs:
+                        Actor.log.info(f'Found {len(jobs)} jobs in pageData')
+                        return jobs
+            
+            # Fallback: try direct jobs array
+            for query in queries:
+                state_data = query.get('state', {}).get('data', {})
+                if isinstance(state_data, dict) and 'jobs' in state_data:
+                    jobs = state_data.get('jobs', [])
+                    if jobs:
+                        Actor.log.info(f'Found {len(jobs)} jobs in direct state')
+                        return jobs
         
         Actor.log.warning('No jobs array found in __NEXT_DATA__')
         return []
