@@ -7,6 +7,56 @@
   "buildTag": "latest",
   "dockerfile": "./Dockerfile",
   "categories": ["JOBS"],
-  "seoTitle": "Cutshort Scraper for Claude, ChatGPT & AI Agents | India Tech Jobs",
-  "seoDescription": "Fast Cutshort.io job scraper optimized for AI agents. Extract India tech job listings with salary, skills, company data. MCP-compatible, pure HTTP, 3-5x faster than competitors."
+  "seoTitle": "Cutshort Job Scraper for AI Agents | India Tech Jobs",
+  "seoDescription": "Fast Cutshort.io job scraper optimized for AI agents. Extract India tech job listings with salary, skills, company data. MCP-compatible, pure HTTP, 3-5x faster than competitors.",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "title": "Cutshort Job",
+      "views": {
+        "overview": {
+          "title": "Overview",
+          "transformation": {
+            "fields": [
+              "title",
+              "company",
+              "location",
+              "salaryText",
+              "skills",
+              "url"
+            ]
+          },
+          "display": {
+            "component": "table",
+            "properties": {
+              "title": {
+                "label": "Job Title",
+                "format": "text"
+              },
+              "company": {
+                "label": "Company",
+                "format": "text"
+              },
+              "location": {
+                "label": "Location",
+                "format": "text"
+              },
+              "salaryText": {
+                "label": "Salary",
+                "format": "text"
+              },
+              "skills": {
+                "label": "Skills",
+                "format": "text"
+              },
+              "url": {
+                "label": "URL",
+                "format": "link"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
