@@ -146,7 +146,14 @@ async def main():
         # Get input
         actor_input = await Actor.get_input() or {}
         max_results = actor_input.get('maxResults', 50)
-        start_url = actor_input.get('startUrl', 'https://cutshort.io/jobs')
+        search_query = actor_input.get('searchQuery', 'python')
+        location = actor_input.get('location', 'bangalore')
+        
+        # Build URL from search params
+        # Cutshort URL format: /jobs/{query}-jobs-in-{location}
+        query_slug = search_query.lower().replace(' ', '-')
+        location_slug = location.lower().replace(' ', '-')
+        start_url = f'https://cutshort.io/jobs/{query_slug}-jobs-in-{location_slug}'
         
         # Proxy configuration
         proxy_config = await Actor.create_proxy_configuration(

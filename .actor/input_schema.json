@@ -4,13 +4,19 @@
   "type": "object",
   "description": "Configure the scraper parameters",
   "properties": {
-    "startUrl": {
+    "searchQuery": {
       "type": "string",
-      "title": "Start URL",
-      "description": "The Cutshort.io URL to scrape (e.g., https://cutshort.io/jobs/python-jobs)",
+      "title": "Search Query",
+      "description": "Job title or skills to search (e.g., 'python', 'full-stack', 'data-science')",
       "editor": "textfield",
-      "example": "https://cutshort.io/jobs/python-jobs",
-      "prefill": "https://cutshort.io/jobs"
+      "prefill": "python"
+    },
+    "location": {
+      "type": "string",
+      "title": "Location",
+      "description": "City or region (e.g., 'Bangalore', 'Mumbai', 'Remote')",
+      "editor": "textfield",
+      "prefill": "Bangalore"
     },
     "maxResults": {
       "type": "integer",
@@ -33,5 +39,5 @@
       "editor": "proxy"
     }
   },
-  "required": ["startUrl"]
+  "required": ["searchQuery"]
 }
